@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, ScrollView, StyleSheet, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
@@ -18,10 +18,18 @@ const Favourites = () => {
   }, []);
 
   return (
-    <View>
+    <ScrollView contentInsetAdjustmentBehavior="automatic" style={{ flex: 1 }}>
       <StatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
       <Text>Favourites</Text>
-    </View>
+      <Button
+        title="game detail sayfasına git"
+        onPress={() => {
+          navigation.navigate("Games", {
+            screen: "GameDetail",
+          });
+        }}
+      />
+    </ScrollView>
   );
 };
 
