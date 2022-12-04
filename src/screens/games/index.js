@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
+import GameListItem from "../../components/GameListItem";
 
 const Games = () => {
   const navigation = useNavigation();
@@ -22,7 +23,15 @@ const Games = () => {
         contentContainerStyle={{ flexGrow: 1 }}
         contentInsetAdjustmentBehavior="automatic"
         renderItem={() => <Text>item</Text>}
-        ListEmptyComponent={() => <Text>boş sayfa</Text>}
+        ListEmptyComponent={
+          <GameListItem
+            onPress={() => {
+              navigation.navigate("Games", {
+                screen: "GameDetail",
+              });
+            }}
+          />
+        }
       />
     </>
   );
