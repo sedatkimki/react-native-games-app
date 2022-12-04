@@ -1,10 +1,20 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import React, { useLayoutEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+import FavouriteButton from "./components/FavouriteButton";
+import GameHeader from "./components/GameHeader";
 
 const GameDetail = () => {
+  const navigation = useNavigation();
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: "",
+      headerRight: () => <FavouriteButton />,
+    });
+  }, []);
   return (
     <View>
-      <Text>GameDetail</Text>
+      <GameHeader title="Grand Theft Auto V" />
     </View>
   );
 };

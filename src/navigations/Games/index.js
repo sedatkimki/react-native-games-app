@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Games from "../../screens/games";
 import GameDetail from "../../screens/gameDetail";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { Button } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
