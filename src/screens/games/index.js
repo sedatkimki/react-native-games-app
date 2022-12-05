@@ -15,6 +15,8 @@ import {
   fetchMoreGames,
   getGames,
 } from "../../redux/slices/games/gamesSlice";
+import Loading from "../../components/common/Loading";
+import EmptyComponent from "../../components/common/EmptyComponent";
 
 const RenderFooter = ({ loading }) => {
   return (
@@ -62,9 +64,7 @@ const Games = () => {
     <>
       <StatusBar barStyle="dark-content" backgroundColsor="#ecf0f1" />
       {games?.loading ? (
-        <View style={styles.loading}>
-          <ActivityIndicator size={"large"} />
-        </View>
+        <Loading />
       ) : (
         <FlatList
           contentContainerStyle={{ flexGrow: 1 }}
@@ -85,7 +85,9 @@ const Games = () => {
           )}
           ListFooterComponent={<RenderFooter loading={games?.moreLoading} />}
           data={games?.data?.results}
-          ListEmptyComponent={<Text>bos</Text>}
+          ListEmptyComponent={
+            <EmptyComponent text={"No game has been searched"} />
+          }
           onEndReachedThreshold={0.2}
           onEndReached={() => {
             if (!games?.moreLoading && games?.data.next) {
@@ -100,10 +102,4 @@ const Games = () => {
 
 export default Games;
 
-const styles = StyleSheet.create({
-  loading: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+const styles = StyleSheet.create({});
