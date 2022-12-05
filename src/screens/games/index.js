@@ -1,8 +1,14 @@
 import { FlatList, StyleSheet, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import GameListItem from "../../components/common/GameListItem";
+import {
+  clearGames,
+  selectGames,
+  setGames,
+} from "../../redux/slices/games/gamesSlice";
 
 const Games = () => {
   const navigation = useNavigation();
