@@ -5,7 +5,7 @@ import {
   Text,
   View,
 } from "react-native";
-import React, { useLayoutEffect, useEffect } from "react";
+import React, { useLayoutEffect, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
@@ -28,6 +28,7 @@ const Games = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const games = useSelector(getGames);
+  const [searchInput, setSearchInput] = useState("");
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -35,6 +36,9 @@ const Games = () => {
       title: "Games",
       headerSearchBarOptions: {
         placeholder: "Search for the games",
+        onChangeText: (event) => {
+          setSearchInput(event.nativeEvent.text);
+        },
       },
     });
   }, []);
@@ -42,6 +46,17 @@ const Games = () => {
   useEffect(() => {
     dispatch(fetchGames());
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (searchInput.length > 3) {
+        dispatch(fetchGames(searchInput));
+      } else {
+        dispatch(fetchGames());
+      }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchInput]);
 
   return (
     <>
@@ -73,7 +88,7 @@ const Games = () => {
           ListEmptyComponent={<Text>bos</Text>}
           onEndReachedThreshold={0.2}
           onEndReached={() => {
-            if (!games?.moreLoading) {
+            if (!games?.moreLoading && games?.data.next) {
               dispatch(fetchMoreGames());
             }
           }}

@@ -4,12 +4,17 @@ import { API_ENPOINT, API_KEY } from "@env";
 
 const initialState = {};
 
-export const fetchGames = createAsyncThunk("fetchGames", async () => {
-  const response = await axios.get(
-    `${API_ENPOINT}?key=${API_KEY}&page_size=10&page=1`
-  );
-  return response.data;
-});
+export const fetchGames = createAsyncThunk(
+  "fetchGames",
+  async (searchInput) => {
+    const response = await axios.get(
+      `${API_ENPOINT}?key=${API_KEY}&page_size=10&page=1&search=${
+        searchInput ? searchInput : ""
+      }`
+    );
+    return response.data;
+  }
+);
 
 export const fetchMoreGames = createAsyncThunk(
   "fetchMoreGames",
