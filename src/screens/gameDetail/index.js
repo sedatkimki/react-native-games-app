@@ -17,8 +17,9 @@ const Divider = () => (
   ></View>
 );
 
-const GameDetail = () => {
+const GameDetail = ({ route }) => {
   const navigation = useNavigation();
+  const { gameId } = route.params;
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "",
