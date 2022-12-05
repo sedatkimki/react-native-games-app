@@ -1,0 +1,31 @@
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+
+const GameDescription = ({ description }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Game Description</Text>
+      <Text style={styles.description}>{description}</Text>
+    </View>
+  );
+};
+
+export default GameDescription;
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+  },
+  title: {
+    fontSize: 17,
+    lineHeight: 22,
+    letterSpacing: -0.41,
+    paddingBottom: 8,
+  },
+  description: {
+    fontSize: 10,
+    lineHeight: 22,
+    letterSpacing: -0.41,
+  },
+});

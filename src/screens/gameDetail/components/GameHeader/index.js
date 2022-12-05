@@ -3,14 +3,9 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import React from "react";
 
-const GameHeader = ({ title }) => {
+const GameHeader = ({ title, imageSource }) => {
   return (
-    <ImageBackground
-      style={styles.image}
-      source={{
-        uri: "https://images.unsplash.com/photo-1570303345338-e1f0eddf4946?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1671&q=80",
-      }}
-    >
+    <ImageBackground style={styles.image} source={imageSource}>
       <LinearGradient
         colors={["rgba(0, 0, 0, 0) ", "rgba(0, 0, 0, 0.8)"]}
         locations={[0.3, 1]}

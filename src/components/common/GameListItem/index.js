@@ -41,6 +41,4 @@ const styles = StyleSheet.create({
   rightContainer: {
     justifyContent: "space-between",
   },
-  // rightHeader: {},
-  // rightFooter: {},
 });

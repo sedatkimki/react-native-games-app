@@ -37,11 +37,6 @@ const Games = () => {
   );
 };
 
-// onPress={() => {
-//   navigation.navigate("Games", {
-//     screen: "GameDetail",
-//   });
-// }}
 export default Games;
 
 const styles = StyleSheet.create({});
