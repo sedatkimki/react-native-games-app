@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
-import GameListItem from "../../components/GameListItem";
+import GameListItem from "../../components/common/GameListItem";
 
 const Games = () => {
   const navigation = useNavigation();
@@ -37,11 +37,6 @@ const Games = () => {
   );
 };
 
-// onPress={() => {
-//   navigation.navigate("Games", {
-//     screen: "GameDetail",
-//   });
-// }}
 export default Games;
 
 const styles = StyleSheet.create({});
