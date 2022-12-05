@@ -11,7 +11,7 @@ import {
   selectGameDetail,
 } from "../../redux/slices/gameDetail/gameDetailSlice";
 import Loading from "../../components/common/Loading";
-
+import _ from "lodash";
 const Divider = () => (
   <View
     style={{
@@ -27,19 +27,19 @@ const GameDetail = ({ route }) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const gameDetail = useSelector(selectGameDetail);
-  const { gameId } = route.params;
+  const { item } = route.params;
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "",
-      headerRight: () => <FavouriteButton />,
+      headerRight: () => <FavouriteButton item={item} />,
     });
   }, []);
 
   useEffect(() => {
-    dispatch(fetchGameDetails(gameId));
+    dispatch(fetchGameDetails(item.id));
   }, []);
 
-  if (gameDetail.loading) {
+  if (gameDetail.loading || _.isEmpty(gameDetail)) {
     return <Loading />;
   } else {
     return (

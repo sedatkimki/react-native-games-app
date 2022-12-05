@@ -6,6 +6,7 @@ import { AsyncStorage } from "react-native";
 import gamesReducer from "./slices/games/gamesSlice";
 import favouritesReducer from "./slices/favourites/favouritesSlice";
 import gameDetailReducer from "./slices/gameDetail/gameDetailSlice";
+import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 
 const rootReducer = combineReducers({
   games: gamesReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
+  stateReconciler: autoMergeLevel2,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -26,4 +28,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-// persistor.purge();
+persistor.purge();
