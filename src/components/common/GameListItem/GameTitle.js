@@ -13,5 +13,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     lineHeight: 25,
     letterSpacing: 0.38,
+    flex: 1,
+    flexWrap: "wrap",
   },
 });

@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import React from "react";
+import HTML from "react-native-render-html";
 
 const GameDescription = ({ description }) => {
+  const contentWidth = useWindowDimensions().width;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Game Description</Text>
-      <Text style={styles.description}>{description}</Text>
+      <Text style={styles.description}>
+        <HTML source={{ html: description }} contentWidth={contentWidth} />
+      </Text>
     </View>
   );
 };
