@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image } from "react-native";
 
-import GamesNavigator from "./Games";
-import FavouritesNavigator from "./Favourites";
+import GamesNavigator from "./GamesNavigator";
+import FavouritesNavigator from "./FavouritesNavigator";
 
 const Tab = createBottomTabNavigator();
 
