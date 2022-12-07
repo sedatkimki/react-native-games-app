@@ -5,10 +5,18 @@ import GameScore from "./GameScore";
 import GameCategory from "./GameCategory";
 import GameImage from "./GameImage";
 
-const GameListItem = ({ onPress, game }) => {
+const GameListItem = ({ onPress, game, visited }) => {
   if (game) {
     return (
-      <Pressable onPress={onPress} style={styles.container}>
+      <Pressable
+        onPress={onPress}
+        style={({ pressed }) => ({
+          padding: 16,
+          flexDirection: "row",
+          backgroundColor: pressed ? "#E0E0E0" : "#fff",
+          backgroundColor: visited ? "#E0E0E0" : "#fff",
+        })}
+      >
         <View style={styles.leftContainer}>
           <GameImage
             source={{
@@ -38,12 +46,6 @@ const GameListItem = ({ onPress, game }) => {
 export default GameListItem;
 
 const styles = StyleSheet.create({
-  container: ({ pressed }) => ({
-    padding: 16,
-    flexDirection: "row",
-    backgroundColor: "#fff",
-    backgroundColor: pressed ? "#E0E0E0" : "#fff",
-  }),
   leftContainer: {
     paddingRight: 16,
   },

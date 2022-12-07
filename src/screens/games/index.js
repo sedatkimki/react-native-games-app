@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import GameListItem from "../../components/common/GameListItem";
 import {
+  addVisited,
   fetchGames,
   fetchMoreGames,
   getGames,
@@ -54,6 +55,15 @@ const Games = () => {
     return () => clearTimeout(timer);
   }, [searchInput]);
 
+  const onPress = async (item) => {
+    await navigation.navigate("Games", {
+      screen: "GameDetail",
+      params: {
+        item,
+      },
+    });
+    dispatch(addVisited(item.id));
+  };
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColsor="#ecf0f1" />
@@ -66,15 +76,13 @@ const Games = () => {
           renderItem={({ item }) => (
             <GameListItem
               key={item.id}
-              onPress={() => {
-                navigation.navigate("Games", {
-                  screen: "GameDetail",
-                  params: {
-                    item,
-                  },
-                });
+              onPress={async () => {
+                await onPress(item);
               }}
               game={item}
+              visited={
+                games.visitedIds.find((id) => id === item.id) ? true : false
+              }
             />
           )}
           ListFooterComponent={<RenderFooter loading={games?.moreLoading} />}

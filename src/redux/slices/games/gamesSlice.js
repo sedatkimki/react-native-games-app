@@ -2,7 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_ENPOINT, API_KEY } from "@env";
 
-const initialState = {};
+const initialState = {
+  loading: false,
+  data: {},
+  error: "",
+  visitedIds: [],
+};
 
 export const fetchGames = createAsyncThunk(
   "fetchGames",
@@ -31,11 +36,12 @@ const gamesSlice = createSlice({
   name: "games",
   initialState,
   reducers: {
-    setGames: (state, action) => {
-      state.data = action.payload;
-    },
-    clearGames: (state) => {
-      return state;
+    addVisited: (state, action) => {
+      if (state.visitedIds.find((id) => id === action.payload)) {
+        console.log("its already added to visitedIds");
+      } else {
+        state.visitedIds.push(action.payload);
+      }
     },
   },
   extraReducers: (builder) => {
@@ -67,7 +73,7 @@ const gamesSlice = createSlice({
   },
 });
 
-export const { setGames, clearGames } = gamesSlice.actions;
+export const { addVisited } = gamesSlice.actions;
 
 export const getGames = (state) => state.games;
 
