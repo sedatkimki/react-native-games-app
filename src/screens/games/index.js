@@ -1,10 +1,4 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import React, { useLayoutEffect, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
@@ -76,7 +70,7 @@ const Games = () => {
                 navigation.navigate("Games", {
                   screen: "GameDetail",
                   params: {
-                    gameId: item.id,
+                    item,
                   },
                 });
               }}
