@@ -3,7 +3,7 @@ Bu proje React-Native(expo) ve redux toolkit kullanılarak geliştirilmiştir. R
 
 ## Ekran görüntüleri
 
-![Favourites Empty](/screenshots/WhatsApp Image 2022-12-10 at 17.13.53 (1).jpeg?raw=true "Favourites Empty")
+![Favourites Empty](https://github.com/sedatkimki/react-native-games-app/blob/master/screenshots/WhatsApp%20Image%202022-12-10%20at%2017.13.53%20(1).jpeg?raw=true "Favourites Empty")
 
 
 
