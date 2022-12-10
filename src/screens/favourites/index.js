@@ -1,4 +1,3 @@
-import { FlatList } from "react-native";
 import React, { useLayoutEffect, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
@@ -6,6 +5,8 @@ import { useSelector } from "react-redux";
 import { selectFavourites } from "../../redux/slices/favourites/favouritesSlice";
 import EmptyComponent from "../../components/common/EmptyComponent";
 import GameListItem from "../../components/common/GameListItem";
+import { SwipeListView } from "react-native-swipe-list-view";
+import DeleteButton from "../../components/common/DeleteButton";
 
 const Favourites = () => {
   const navigation = useNavigation();
@@ -36,7 +37,7 @@ const Favourites = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
-      <FlatList
+      <SwipeListView
         contentContainerStyle={{ flexGrow: 1 }}
         contentInsetAdjustmentBehavior="automatic"
         renderItem={({ item }) => (
@@ -57,6 +58,10 @@ const Favourites = () => {
         ListEmptyComponent={
           <EmptyComponent text={"There is no favourites found"} />
         }
+        renderHiddenItem={(data, rowMap) => <DeleteButton item={data.item} />}
+        disableRightSwipe
+        rightOpenValue={-75}
+        stopRightSwipe={-75}
       />
     </>
   );
