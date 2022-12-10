@@ -5,13 +5,13 @@ import { AsyncStorage } from "react-native";
 
 import gamesReducer from "./slices/games/gamesSlice";
 import favouritesReducer from "./slices/favourites/favouritesSlice";
-import gameDetailReducer from "./slices/gameDetail/gameDetailSlice";
+import gameDetailsReducer from "./slices/gameDetails/gameDetailsSlice";
 import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 
 const rootReducer = combineReducers({
   games: gamesReducer,
   favourites: favouritesReducer,
-  gameDetail: gameDetailReducer,
+  gameDetails: gameDetailsReducer,
 });
 
 const persistConfig = {
@@ -28,4 +28,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-persistor.purge();

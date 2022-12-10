@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     lineHeight: 40,
     letterSpacing: 0.3,
     color: "white",
+    textAlign: "right",
   },
   gradientContainer: {
     flex: 1,

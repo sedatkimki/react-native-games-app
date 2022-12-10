@@ -2,7 +2,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { API_ENPOINT, API_KEY } from "@env";
 import axios from "axios";
 
-const initialState = {};
+const initialState = {
+  loading: false,
+  error: "",
+  data: {},
+};
 
 export const fetchGameDetails = createAsyncThunk(
   "fetchGameDetails",
@@ -12,14 +16,14 @@ export const fetchGameDetails = createAsyncThunk(
   }
 );
 
-const gameDetailSlice = createSlice({
-  name: "gameDetail",
+const gameDetailsSlice = createSlice({
+  name: "gameDetails",
   initialState,
   reducers: {
-    setGameDetail: (state, action) => {
+    setGameDetails: (state, action) => {
       state.data = action.payload;
     },
-    clearGameDetail: (state) => {
+    clearGameDetails: (state) => {
       return state;
     },
   },
@@ -39,8 +43,8 @@ const gameDetailSlice = createSlice({
   },
 });
 
-export const { setGameDetail, clearGameDetail } = gameDetailSlice.actions;
+export const { setGameDetails, clearGameDetails } = gameDetailsSlice.actions;
 
-export const selectGameDetail = (state) => state.gameDetail;
+export const selectGameDetails = (state) => state.gameDetails;
 
-export default gameDetailSlice.reducer;
+export default gameDetailsSlice.reducer;

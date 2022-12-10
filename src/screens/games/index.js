@@ -57,7 +57,7 @@ const Games = () => {
 
   const onPress = async (item) => {
     await navigation.navigate("Games", {
-      screen: "GameDetail",
+      screen: "GameDetails",
       params: {
         item,
       },

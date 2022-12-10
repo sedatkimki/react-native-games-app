@@ -1,8 +1,8 @@
-import { Button, FlatList, ScrollView, StyleSheet, Text } from "react-native";
-import React, { useLayoutEffect, useEffect, useState } from "react";
+import { FlatList } from "react-native";
+import React, { useLayoutEffect, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectFavourites } from "../../redux/slices/favourites/favouritesSlice";
 import EmptyComponent from "../../components/common/EmptyComponent";
 import GameListItem from "../../components/common/GameListItem";
@@ -24,6 +24,7 @@ const Favourites = () => {
       }`,
     });
   }, []);
+
   useEffect(() => {
     navigation.setOptions({
       title: `Favourites ${
@@ -42,8 +43,8 @@ const Favourites = () => {
           <GameListItem
             key={item.id}
             onPress={() => {
-              navigation.navigate("Games", {
-                screen: "GameDetail",
+              navigation.navigate("Favourites", {
+                screen: "FavouritesGameDetails",
                 params: {
                   item,
                 },
@@ -62,5 +63,3 @@ const Favourites = () => {
 };
 
 export default Favourites;
-
-const styles = StyleSheet.create({});

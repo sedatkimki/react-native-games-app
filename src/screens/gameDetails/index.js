@@ -8,8 +8,8 @@ import VisitButton from "./components/VisitButton";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchGameDetails,
-  selectGameDetail,
-} from "../../redux/slices/gameDetail/gameDetailSlice";
+  selectGameDetails,
+} from "../../redux/slices/gameDetails/gameDetailsSlice";
 import Loading from "../../components/common/Loading";
 import _ from "lodash";
 const Divider = () => (
@@ -23,10 +23,10 @@ const Divider = () => (
   ></View>
 );
 
-const GameDetail = ({ route }) => {
+const GameDetails = ({ route }) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const gameDetail = useSelector(selectGameDetail);
+  const gameDetails = useSelector(selectGameDetails);
   const { item } = route.params;
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -39,28 +39,28 @@ const GameDetail = ({ route }) => {
     dispatch(fetchGameDetails(item.id));
   }, []);
 
-  if (gameDetail.loading || _.isEmpty(gameDetail)) {
+  if (gameDetails.loading || _.isEmpty(gameDetails)) {
     return <Loading />;
   } else {
     return (
       <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
         <GameHeader
-          title={gameDetail.data.name}
+          title={gameDetails.data.name}
           imageSource={{
-            uri: gameDetail.data.background_image,
+            uri: gameDetails.data.background_image,
           }}
         />
-        <GameDescription description={gameDetail.data.description} />
+        <GameDescription description={gameDetails.data.description} />
         <Divider />
-        {gameDetail.data.reddit_url && (
+        {gameDetails.data.reddit_url && (
           <VisitButton
-            url={gameDetail.data.reddit_url}
+            url={gameDetails.data.reddit_url}
             title={"Visit reddit"}
           />
         )}
         <Divider />
-        {gameDetail.data.website && (
-          <VisitButton url={gameDetail.data.website} title={"Visit website"} />
+        {gameDetails.data.website && (
+          <VisitButton url={gameDetails.data.website} title={"Visit website"} />
         )}
         <Divider />
       </ScrollView>
@@ -68,6 +68,4 @@ const GameDetail = ({ route }) => {
   }
 };
 
-export default GameDetail;
-
-const styles = StyleSheet.create({});
+export default GameDetails;
