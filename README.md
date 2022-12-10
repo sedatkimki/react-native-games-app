@@ -3,17 +3,10 @@ Bu proje React-Native(expo) ve redux toolkit kullanılarak geliştirilmiştir. R
 
 ## Ekran görüntüleri
 
-![WhatsApp Image 2022-12-10 at 17.13.53.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd726b87-826f-4d16-8873-e17d04c66780/WhatsApp_Image_2022-12-10_at_17.13.53.jpeg)
+![Favourites Empty](/screenshots/WhatsApp Image 2022-12-10 at 17.13.53 (1).jpeg?raw=true "Favourites Empty")
 
-![WhatsApp Image 2022-12-10 at 17.13.55.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fe0cd410-465c-4dda-8dfd-c874575c7a6a/WhatsApp_Image_2022-12-10_at_17.13.55.jpeg)
 
-![WhatsApp Image 2022-12-10 at 17.13.53 (1).jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a70e371d-d6b9-4249-965a-fc5e1c218ee9/WhatsApp_Image_2022-12-10_at_17.13.53_(1).jpeg)
 
-![WhatsApp Image 2022-12-10 at 17.13.54 (1).jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c2cb0cd7-87ee-4c01-bae9-51a4a900df01/WhatsApp_Image_2022-12-10_at_17.13.54_(1).jpeg)
-
-![WhatsApp Image 2022-12-10 at 17.13.54.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7444da7a-424e-4ed9-8e3e-e1512668e1cc/WhatsApp_Image_2022-12-10_at_17.13.54.jpeg)
-
-![WhatsApp Image 2022-12-10 at 17.13.55 (1).jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/66fe1029-be71-4843-8ee3-98b893240d23/WhatsApp_Image_2022-12-10_at_17.13.55_(1).jpeg)
 
 ## Kurulum
 
