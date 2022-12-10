@@ -1,12 +1,6 @@
 # react-native-games-app
 Bu proje React-Native(expo) ve redux toolkit kullanılarak geliştirilmiştir. React-Native cross platform geliştirmeye uygun olsa da bu uygulama sadece ios üzerinde test edildi. Bu sebeple android ve web platformunda düzgün çalışmayabilir.
 
-## Ekran görüntüleri
-
-![Favourites Empty](https://github.com/sedatkimki/react-native-games-app/blob/master/screenshots/WhatsApp%20Image%202022-12-10%20at%2017.13.53%20(1).jpeg?raw=true "Favourites Empty")
-
-
-
 
 ## Kurulum
 
