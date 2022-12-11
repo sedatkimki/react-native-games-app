@@ -2,6 +2,18 @@
 Bu proje React-Native(expo) ve redux toolkit kullanılarak geliştirilmiştir. React-Native cross platform geliştirmeye uygun olsa da bu uygulama sadece ios üzerinde test edildi. Bu sebeple android ve web platformunda düzgün çalışmayabilir.
 
 
+## Özellikler
+
+1. Oyunlar infinite scroll ile listelenir. 
+2. Search bar kullanılarak oyunlar içinde arama yapılabilir. Arama sonuçları da paginateli ve infinite scroll şeklinde listelenir
+3. Listelenen oyunlara tıklandığında oyun detayları sayfası açılır. 
+4. Oyun detay sayfasında oyunun resmi, ismi, açıklaması, reddit sayfası ve websitesi bulunur.
+5. Ayrıca oyun detay sayfasında oyun favoriler listesine eklenebilir veya çıkarılabilir.
+6. Favoriler sayfasında favorilere eklenen oyunlar listelenir. 
+7. Favoriler sayfasında favoriye eklenen oyunların sayısı gösterilir.
+8. Favoriler sayfasında listelenen oyunlara tıklandığında aynı oyunlar sayfasındaki gibi oyunun detay sayfasına gidilebilir
+9. Listelenen oyunları kullanıcı dilerse favori listesinden, sola sürükleyerek çıkarabilir.
+
 ## Kurulum
 
 Bu uygulamaya çalıştırmak için android veya ios cihazınıza *Expo Go* uygulamasını indirip kurmalısınız. Veya simulator de çalıştırabilirsiniz fakat bu uygulama geliştirilirken sadece ios yüklü bir cihazda test edildi herhangi bir simulatorde test yapılmadı. Bu sebeple sorunlar oluşulabilir.
