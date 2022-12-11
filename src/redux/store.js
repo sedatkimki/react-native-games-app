@@ -14,10 +14,11 @@ const rootReducer = combineReducers({
   gameDetails: gameDetailsReducer,
 });
 
+// offline first için redux-persist kullanıyoruz. persist için config yapmamız gerekiyor
 const persistConfig = {
   key: "root",
-  storage: AsyncStorage,
-  stateReconciler: autoMergeLevel2,
+  storage: AsyncStorage, // offline olarak kullanılacak storage'ı belirliyoruz. Bu durumda react-native yardımıyla telefonun storage'ını veriyoruz.
+  stateReconciler: autoMergeLevel2, // slicelarda tanımlanan initial stateleri kullanabilmek için storage'daki veriyle mergeliyoruz
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

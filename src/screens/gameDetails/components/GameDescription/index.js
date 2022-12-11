@@ -8,7 +8,8 @@ const GameDescription = ({ description }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Game Description</Text>
-      <Text style={styles.description}>
+      <Text style={styles.description} numberOfLines={4}>
+        {/* apiden html olarak response alındığı için bu componenti kullanıyoruz */}
         <HTML source={{ html: description }} contentWidth={contentWidth} />
       </Text>
     </View>

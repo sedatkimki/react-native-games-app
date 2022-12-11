@@ -19,6 +19,8 @@ export default function AppNavigations() {
   return (
     <NavigationContainer>
       <Tab.Navigator
+        // Alttaki Tab navigasyonu ayarları
+        // ayrıca tablerde kullanılan ikonlar burada tanımlanıyor.
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused }) => {
             const routeName = route.name;
@@ -38,6 +40,7 @@ export default function AppNavigations() {
           },
         })}
       >
+        {/* Tab navigasyonları burada tanımlanıyor. Kullanılan iki sekme ve bu sekmelerin renderlayacağı komponentler verilmiş. */}
         <Tab.Screen
           name="Games"
           options={{ headerShown: false }}

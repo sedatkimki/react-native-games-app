@@ -39,7 +39,7 @@ const Favourites = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
       <SwipeListView
         contentContainerStyle={{ flexGrow: 1 }}
-        contentInsetAdjustmentBehavior="automatic"
+        contentInsetAdjustmentBehavior="automatic" // Largeheader kullandığımız için bu propu vermemiz gerekiyor.
         renderItem={({ item }) => (
           <GameListItem
             key={item.id}

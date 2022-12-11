@@ -8,8 +8,11 @@ import { PersistGate } from "redux-persist/integration/react";
 export default function App() {
   return (
     <Provider store={store}>
+      {/* redux store provider */}
       <PersistGate loading={null} persistor={persistor}>
+        {/* redux persist provider*/}
         <SafeAreaProvider>
+          {/* for safearea container*/}
           <AppNavigations />
         </SafeAreaProvider>
       </PersistGate>

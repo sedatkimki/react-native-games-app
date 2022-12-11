@@ -13,6 +13,7 @@ import {
 import Loading from "../../components/common/Loading";
 import EmptyComponent from "../../components/common/EmptyComponent";
 
+// liste sonuna gelindiğinde tekrar fetch yapılırken loading komponenti renderlanıyor.
 const RenderFooter = ({ loading }) => {
   return (
     <View style={{ paddingVertical: 16 }}>
@@ -28,6 +29,7 @@ const Games = () => {
   const [searchInput, setSearchInput] = useState("");
 
   useLayoutEffect(() => {
+    // navigasyon sayfasının header ayarları
     navigation.setOptions({
       headerLargeTitle: true,
       title: "Games",
@@ -45,6 +47,7 @@ const Games = () => {
   }, []);
 
   useEffect(() => {
+    // search bar'a değer girildiğinde search işlemi burada kontrol edilip yapılıyor.
     const timer = setTimeout(() => {
       if (searchInput.length > 3) {
         dispatch(fetchGames(searchInput));
@@ -56,17 +59,19 @@ const Games = () => {
   }, [searchInput]);
 
   const onPress = async (item) => {
+    // listedeki oyuna tıklandığında ilgili oyunun detay sayfasına yönlendirme
     await navigation.navigate("Games", {
       screen: "GameDetails",
       params: {
         item,
       },
     });
-    dispatch(addVisited(item.id));
+    dispatch(addVisited(item.id)); // ziyaret edildi olarak işaretleniyor
   };
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColsor="#ecf0f1" />
+      {/* status bardaki kontenti siyah yapmak için */}
+      <StatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
       {games?.loading ? (
         <Loading />
       ) : (
@@ -93,6 +98,7 @@ const Games = () => {
           onEndReachedThreshold={0.2}
           onEndReached={() => {
             if (!games?.moreLoading && games?.data.next) {
+              //pagination için
               dispatch(fetchMoreGames());
             }
           }}

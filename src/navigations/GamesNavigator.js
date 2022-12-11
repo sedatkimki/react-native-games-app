@@ -8,6 +8,7 @@ const Stack = createNativeStackNavigator();
 export default function GamesNavigator() {
   return (
     <Stack.Navigator>
+      {/* Tabler içinde kullanılan stack navigasyonları ve renderlanacak komponentler*/}
       <Stack.Screen name="GamesList" component={Games} />
       <Stack.Screen name="GameDetails" component={GameDetails} />
     </Stack.Navigator>

@@ -12,6 +12,7 @@ import {
 } from "../../redux/slices/gameDetails/gameDetailsSlice";
 import Loading from "../../components/common/Loading";
 import _ from "lodash";
+
 const Divider = () => (
   <View
     style={{
@@ -27,8 +28,10 @@ const GameDetails = ({ route }) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const gameDetails = useSelector(selectGameDetails);
-  const { item } = route.params;
+  const { item } = route.params; // route paramlarında oyunun liste detaylarını alıyoruz daha sonrasında id'si ile oyunun detay sayfasını oluşturacağız
+
   useLayoutEffect(() => {
+    // sağ üst köşedeki button header'a dahil olduğu için header ayarlarında bunu belirtiyoruz
     navigation.setOptions({
       title: "",
       headerRight: () => <FavouriteButton item={item} />,
@@ -36,6 +39,7 @@ const GameDetails = ({ route }) => {
   }, []);
 
   useEffect(() => {
+    // aldığımız id ile detayları fetchliyoruz
     dispatch(fetchGameDetails(item.id));
   }, []);
 
@@ -51,12 +55,14 @@ const GameDetails = ({ route }) => {
           }}
         />
         <GameDescription description={gameDetails.data.description} />
-        <Divider />
         {gameDetails.data.reddit_url && (
-          <VisitButton
-            url={gameDetails.data.reddit_url}
-            title={"Visit reddit"}
-          />
+          <>
+            <Divider />
+            <VisitButton
+              url={gameDetails.data.reddit_url}
+              title={"Visit reddit"}
+            />
+          </>
         )}
         <Divider />
         {gameDetails.data.website && (
