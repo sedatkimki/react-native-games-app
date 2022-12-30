@@ -1,17 +1,18 @@
 import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import React from "react";
 import HTML from "react-native-render-html";
+import ReadMore from "@fawazahmed/react-native-read-more";
 
 const GameDescription = ({ description }) => {
   const contentWidth = useWindowDimensions().width;
-
+  const plainText = description.replace(/<[^>]+>/g, "");
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Game Description</Text>
-      <Text style={styles.description} numberOfLines={4}>
-        {/* apiden html olarak response alındığı için bu componenti kullanıyoruz */}
-        <HTML source={{ html: description }} contentWidth={contentWidth} />
-      </Text>
+
+      <ReadMore numberOfLines={4} style={styles.description}>
+        {plainText}
+      </ReadMore>
     </View>
   );
 };
