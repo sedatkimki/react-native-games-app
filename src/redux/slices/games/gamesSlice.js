@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { API_ENPOINT, API_KEY } from "@env";
+import { API_KEY, API_ENDPOINT } from "@env";
 
 const initialState = {
   loading: false,
@@ -13,7 +13,7 @@ export const fetchGames = createAsyncThunk(
   "fetchGames",
   async (searchInput) => {
     const response = await axios.get(
-      `${API_ENPOINT}?key=${API_KEY}&page_size=10&page=1&search=${
+      `${API_ENDPOINT}?key=${API_KEY}&page_size=10&page=1&search=${
         searchInput ? searchInput : ""
       }`
     );

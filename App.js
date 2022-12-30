@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ScreenOrientation from "expo-screen-orientation";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AppNavigations from "./src/navigations";
 import { Provider } from "react-redux";
